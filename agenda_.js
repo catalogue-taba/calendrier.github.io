@@ -1,25 +1,30 @@
 function event_maternelles() {
 	var accueil_maternelles = [];
-	var grands1 = [15, 4, 2021, 'CP et grandes sections'];
-		accueil_maternelles.splice(0, 0, grands1);
-	var moyens1 = [18, 5, 2021, 'moyennes sections'];
-		accueil_maternelles.splice(1, 0, moyens1);
-	var petits1 = [17, 6, 2021, 'petites sections'];
-		accueil_maternelles.splice(2, 0, petits1);
-	var grands2 = [18, 6, 2021, 'CP et grandes sections'];
-		accueil_maternelles.splice(3, 0, grands2);
-	var moyens2 = [20, 6, 2021, 'moyennes sections'];
-		accueil_maternelles.splice(4, 0, moyens2);
+	var accueil1 = [6, 4, 2021, 'petites sections'];
+		accueil_maternelles.splice(0, 0, accueil1);
+	var accueil2 = [26, 4, 2021, 'moyennes sections'];
+		accueil_maternelles.splice(1, 0, accueil2);
+	var accueil3 = [3, 5, 2021, 'CP et grandes sections'];
+		accueil_maternelles.splice(2, 0, accueil3);
+	var accueil4 = [10, 5, 2021, 'moyennes sections'];
+		accueil_maternelles.splice(3, 0, accueil4);
+	var accueil5 = [11, 5, 2021, 'petites sections'];
+		accueil_maternelles.splice(4, 0, accueil5);
+	var accueil6 = [31, 5, 2021, 'CP et grandes sections'];
+		accueil_maternelles.splice(5, 0, accueil6);
+	var accueil7 = [1, 6, 2021, 'petites sections'];
+		accueil_maternelles.splice(6, 0, accueil7);
+	var accueil8 = [7, 6, 2021, 'moyennes sections'];
+		accueil_maternelles.splice(7, 0, accueil8);
+	var accueil9 = [14, 6, 2021, 'CP et grandes sections']
+		accueil_maternelles.splice(8, 0, accueil9);
 		
 	return accueil_maternelles;
 }
 
 function event_bricolages() {
 	var dates_bricolages = [];
-	var bricolage1 = [17, 5, 2021, 'printemps'];
-		dates_bricolages.splice(0, 0, bricolage1);
-	var bricolage2 = [15, 6, 2021, 'été'];
-		dates_bricolages.splice(1, 0, bricolage2);
+
 	
 	return dates_bricolages;
 }
@@ -211,6 +216,7 @@ var date_jour = new Date(Number(annee)+1900, mois, jour);
 var pour_affichage = [];
 
 var dates_maternelles = event_maternelles();
+
 	if(dates_maternelles.length!=0)
 	{
 		var verif_maternelles = [];
@@ -275,6 +281,10 @@ if(pour_affichage.length!=0) {
 			var supp = Number(pour_affichage.length)-3;
 			affichage_ok = pour_affichage;
 			var a_suppr = affichage_ok.splice(3, supp);
+		}
+		else
+		{
+			affichage_ok = pour_affichage;
 		}
 	}
 	
