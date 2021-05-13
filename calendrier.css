@@ -99,3 +99,7 @@ img
 	margin-bottom: 6px;
 	font-weight: bold;
 }
+td:first-child
+{
+	background-color: rgb(195, 195, 195);
+}

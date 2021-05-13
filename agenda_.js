@@ -2,7 +2,7 @@ function event_maternelles() {
 	var accueil_maternelles = [];
 	var grands1 = [15, 4, 2021, 'CP et grandes sections'];
 		accueil_maternelles.splice(0, 0, grands1);
-	var moyens1 = [16, 5, 2021, 'moyennes sections'];
+	var moyens1 = [18, 5, 2021, 'moyennes sections'];
 		accueil_maternelles.splice(1, 0, moyens1);
 	var petits1 = [17, 6, 2021, 'petites sections'];
 		accueil_maternelles.splice(2, 0, petits1);
@@ -113,7 +113,7 @@ function calendrier()
     dep_j = dep_j.getDay();
     chaine_liste = '<tbody id="cal_body">';
 	chaine_liste += '<tr class="cal_j_semaines"><th>D</th><th>L</th><th>M</th><th>M</th><th>J</th><th>V</th><th>S</th></tr><tr>';
-    console.log(moi);
+
 	sem = 0;
     for(i=1;i<=dep_j;i++)
     {
