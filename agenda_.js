@@ -113,12 +113,20 @@ function calendrier()
     dep_j = dep_j.getDay();
     chaine_liste = '<tbody id="cal_body">';
 	chaine_liste += '<tr class="cal_j_semaines"><th>D</th><th>L</th><th>M</th><th>M</th><th>J</th><th>V</th><th>S</th></tr><tr>';
-    
+    console.log(moi);
 	sem = 0;
     for(i=1;i<=dep_j;i++)
     {
-        chaine_liste += '<td class="cal_jours_av_ap">'+(jours_dans_moi[moi-1]-dep_j+i)+'</td>';
-        sem++;
+		if(moi==0)
+		{
+			chaine_liste += '<td class="cal_jours_av_ap">'+(jours_dans_moi[11]-dep_j+i)+'</td>';
+			sem++
+		}
+		else
+		{
+			chaine_liste += '<td class="cal_jours_av_ap">'+(jours_dans_moi[moi-1]-dep_j+i)+'</td>';
+			sem++;
+		}
     }
     for(i=1;i<=total;i++)
     {
