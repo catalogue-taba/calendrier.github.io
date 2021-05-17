@@ -52,16 +52,30 @@ img
 {
     color:#5a779e;
 }
-.maternelles
+.maternelles, .maternelles_double
 {
 	border-radius: 50%;
 	background-color: #F0A935;
+}
+.maternelles_double
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .bricolages
 {
 	border-radius: 50%;
 	background-color: #506bad;
 }
+.conges, .maternelles_conges
+{
+	background-color: red;
+}
+
 .maternelles_aff
 {
 	color: #F0A935;
@@ -69,6 +83,10 @@ img
 .bricolages_aff
 {
 	color: #506bad;
+}
+.conges_aff
+{
+	color: red;
 }
 .lien
 {
@@ -102,4 +120,14 @@ img
 td:first-child
 {
 	background-color: rgb(195, 195, 195);
+}
+a:hover
+{
+	color: #2c2e8c;
+	text-decoration: underline;
+}
+a
+{
+	color: #2c2e8c;
+	text-decoration: none;
 }

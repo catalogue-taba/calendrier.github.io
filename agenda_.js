@@ -29,6 +29,44 @@ function event_bricolages() {
 	return dates_bricolages;
 }
 
+function event_conges() {
+	var dates_conges = [];
+	var debut_conges1 = 14;
+	var fin_conges1 = 27;
+	var nb_conges = fin_conges1 - debut_conges1;
+	var conges1 = [];
+	for(i=0;i<=nb_conges;i++)
+	{
+		var jour_conges = debut_conges1+i;
+		conges1.splice(i, 0, [jour_conges, 6, 2021, 'conges']);
+	}
+	dates_conges.splice(0, 0, conges1);
+	
+	var debut_conges2 = 12;
+	var fin_conges2 = 18;
+	var nb_conges = fin_conges2 - debut_conges2;
+	var conges2 = [];
+	for(i=0;i<=nb_conges;i++)
+	{
+		var jour_conges = debut_conges2+i;
+		conges2.splice(i, 0, [jour_conges, 7, 2021, 'conges']);
+	}
+	dates_conges.splice(1, 0, conges2);
+	
+	var debut_conges3 = 2;
+	var fin_conges3 = 22;
+	var nb_conges = fin_conges3 - debut_conges3;
+	var conges3 = [];
+	for(i=0;i<=nb_conges;i++)
+	{
+		var jour_conges = debut_conges3+i;
+		conges3.splice(i, 0, [jour_conges, 8, 2021, 'conges']);
+	}
+	dates_conges.splice(2, 0, conges3);	
+
+	return dates_conges;
+}
+
 function date() {
 	var date = new Date();
 	var jour = date.getDate();
@@ -94,8 +132,26 @@ function calendrier()
 	affiche_bricolages.splice(j, 0, bricolages[j][0]);
 	}}
 	
+	var conges = event_conges();
+	var affiche_conges = [];
+	
+	for(j=0;j<conges.length;j++)
+	{
+		verif_moi=Number(moi)+1;
+		for(i=0;i<conges[j].length;i++)
+		{
+			
+		if(conges[j][i][1]==verif_moi && conges[j][i][2]==annee)
+		{
+			affiche_conges.splice(j, 0, conges[j][i][0]);
+		}
+		}
+	}
+	
+	
+	
 	var test_afficher_event=0;
-	if(affiche_maternelles.length!=0 || affiche_bricolages.length!=0)
+	if(affiche_maternelles.length!=0 || affiche_bricolages.length!=0 || affiche_conges!=0)
 	{
 	var test_afficher_event=1;
 	}
@@ -154,8 +210,9 @@ function calendrier()
 			{
 				if(affiche_maternelles[j]==i)
 				{
-				chaine_liste += '<td class="maternelles">'+i+'</td>';
+				chaine_liste += '<td class="maternelles" id="'+i+'">'+i+'</td>';
 				var pour_verif=0;
+				var pour_double=1;
 				}
 			}
 			}
@@ -172,10 +229,31 @@ function calendrier()
 			}
 			}
 			
+			if(affiche_conges.length!=0)
+			{
+				for(j=0;j<affiche_conges.length;j++)
+				{
+					if(affiche_conges[j]==i && pour_double==1)
+					{
+						var pour_double=0;
+						chaine_liste += '<td class="maternelles_conges"><span class="maternelles_double"><span class="int_double">'+i+'</span></span></td>';
+						var pour_verif=0;
+
+					}
+					if(affiche_conges[j]==i && pour_verif!=0)
+					{
+						chaine_liste += '<td class="conges">'+i+'</td>';
+						var pour_verif=0;
+						var pour_double=0;
+					}
+				}
+			}
+			
 			if(pour_verif==1)
 			{
 			chaine_liste += '<td>'+i+'</td>';
 			}
+
 		}
 
         else if(pour_verif==1)
@@ -188,6 +266,8 @@ function calendrier()
             chaine_liste += '</tr>';
             sem=0;
         }
+		
+		
     }
     for(i=1;sem!=0;i++)
     {
@@ -202,6 +282,18 @@ function calendrier()
     chaine_liste += '</tbody></table>';
 document.getElementById('cal_calendrier').innerHTML = chaine_liste;
 
+
+var test_double = document.getElementsByClassName('int_double');
+for(i=0;i<test_double.length;i++)
+{
+if(test_double.length!=0)
+{	
+var id_supp = test_double[i].textContent;
+var parent_supp = document.getElementById('14').parentNode;
+var a_supp = document.getElementById(id_supp);
+parent_supp.removeChild(a_supp);
+}
+}
 
 }
 
@@ -303,4 +395,31 @@ if(pour_affichage.length!=0) {
 	document.getElementById('afficher_dates').innerHTML = chaine_liste2;
 	
 }
+var conges = event_conges();
+if(conges.length!=0)
+{
+	var date = new Date(Number(annee)+1900, mois, jour);
+	var chaine_liste3 = chaine_liste2;
+	for(i=0;i<conges.length;i++)
+	{
+		var verif_date = new Date(conges[i][0][2], Number(conges[i][0][1])-1, conges[i][0][0]);
+		var f = verif_date.getTime()-date.getTime();
+		var long_tabl = Number(conges[i].length)-1;
+		var verif_fin = new Date(conges[i][long_tabl][2], Number(conges[i][long_tabl][1])-1, conges[i][long_tabl][0]);
+
+		if(verif_date<=date && verif_fin>=date)
+		{
+			chaine_liste3 += '<p class="conges_aff">Du '+conges[i][0][0]+'/'+conges[i][0][1]+'/'+conges[i][0][2]+' au '+conges[i][long_tabl][0]+'/'+conges[i][long_tabl][1]+'/'+conges[i][long_tabl][2]+' : fermeture pour congés</p>'
+
+		}
+
+		if(0<=f && f<=2592000000)
+		{
+			chaine_liste3 += '<p class="conges_aff">Du '+conges[i][0][0]+'/'+conges[i][0][1]+'/'+conges[i][0][2]+' au '+conges[i][long_tabl][0]+'/'+conges[i][long_tabl][1]+'/'+conges[i][long_tabl][2]+' : fermeture pour congés</p>'
+		}
+
+	}
+	document.getElementById('afficher_dates').innerHTML = chaine_liste3;
+}
+
 }
