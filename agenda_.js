@@ -119,7 +119,7 @@ function calendrier()
 	verif_moi = Number(moi)+1;
 	if(accueil_maternelles[j][1]==verif_moi && accueil_maternelles[j][2]==annee)
 	{
-	affiche_maternelles.splice(j, 0, accueil_maternelles[j][0]);
+	affiche_maternelles.splice(j, 0, [accueil_maternelles[j][0], accueil_maternelles[j][3]]);
 	}}
 	
 	var bricolages = event_bricolages();
@@ -208,9 +208,9 @@ function calendrier()
 			{
 			for(j=0;j<affiche_maternelles.length;j++)
 			{
-				if(affiche_maternelles[j]==i)
+				if(affiche_maternelles[j][0]==i)
 				{
-				chaine_liste += '<td class="maternelles" id="'+i+'">'+i+'</td>';
+				chaine_liste += '<td class="maternelles" id="'+i+'" title="Accueil maternelles: '+affiche_maternelles[j][1]+'">'+i+'</td>';
 				var pour_verif=0;
 				var pour_double=1;
 				}
@@ -236,7 +236,7 @@ function calendrier()
 					if(affiche_conges[j]==i && pour_double==1)
 					{
 						var pour_double=0;
-						chaine_liste += '<td class="maternelles_conges"><span class="maternelles_double"><span class="int_double">'+i+'</span></span></td>';
+						chaine_liste += '<td class="maternelles_conges" title="Accueil maternelles : CP et grandes sections"><span class="maternelles_double"><span class="int_double">'+i+'</span></span></td>';
 						var pour_verif=0;
 
 					}
