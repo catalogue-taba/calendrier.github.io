@@ -107,6 +107,7 @@ function calendrier()
 	var date = new Date(annee, moi, jour);
 	
 	var date_du_jour = new Date();
+	var date_du_jour = new Date();
 	var jour_date_jour = date_du_jour.getDate();
 	var mois_date_jour = date_du_jour.getMonth();
 	var annee_date_jour = date_du_jour.getYear();
@@ -191,75 +192,112 @@ function calendrier()
     }
     for(i=1;i<=total;i++)
     {
-	var pour_verif=1;
+
         if(sem==0)
         {
             chaine_liste += '<tr>';
         }
-        if(jour_date_jour==i && moi==mois_date_jour && annee==annee_date_jour)
-        {
-            chaine_liste += '<td class="cal_aujourdhui">'+i+'</td>';
-			var pour_verif=0;
-        }
-		else if(test_afficher_event==1)
+		if(test_afficher_event==1)
 		{
-		
+			var maternelles=0;
+			var bricolages=0;
+			var conges=0;
+			var jour_ok=0;
 			if(affiche_maternelles.length!=0)
 			{
-			for(j=0;j<affiche_maternelles.length;j++)
-			{
-				if(affiche_maternelles[j][0]==i)
+				for(j=0;j<affiche_maternelles.length;j++)
 				{
-				chaine_liste += '<td class="maternelles" id="'+i+'" title="Accueil maternelles: '+affiche_maternelles[j][1]+'">'+i+'</td>';
-				var pour_verif=0;
-				var pour_double=1;
+					if(affiche_maternelles[j][0]==i)
+					{
+						var maternelles=1;
+						var detail_maternelles = affiche_maternelles[j][1];
+					}
 				}
 			}
-			}
-			
 			if(affiche_bricolages.length!=0)
 			{
-			for(j=0;j<affiche_bricolages.length;j++)
-			{
-				if(affiche_bricolages[j]==i)
+				for(j=0;j<affiche_bricolages.length;j++)
 				{
-				chaine_liste += '<td class="bricolages">'+i+'</td>';
-				var pour_verif=0;
+					if(affiche_bricolages[j][0]==i)
+					{
+						var bricolages=1;
+					}
 				}
 			}
-			}
-			
 			if(affiche_conges.length!=0)
 			{
 				for(j=0;j<affiche_conges.length;j++)
 				{
-					if(affiche_conges[j]==i && pour_double==1)
+					if(affiche_conges[j]==i)
 					{
-						var pour_double=0;
-						chaine_liste += '<td class="maternelles_conges" title="Accueil maternelles : CP et grandes sections"><span class="maternelles_double"><span class="int_double">'+i+'</span></span></td>';
-						var pour_verif=0;
-
-					}
-					if(affiche_conges[j]==i && pour_verif!=0)
-					{
-						chaine_liste += '<td class="conges">'+i+'</td>';
-						var pour_verif=0;
-						var pour_double=0;
+						var conges=1;
 					}
 				}
 			}
-			
-			if(pour_verif==1)
+			if(jour_date_jour==i && moi==mois_date_jour && annee==annee_date_jour)
 			{
-			chaine_liste += '<td>'+i+'</td>';
+				jour_ok=1;
 			}
-
+			
+			if(jour_ok==1)
+			{
+				if(bricolages==1)
+				{
+					chaine_liste += '<td class="bricolages_aujourdhui">'+i+'</td>';
+				}
+				if(maternelles==1 && conges==0)
+				{
+					chaine_liste += '<td class="maternelles_aujourdhui">'+i+'</td>';
+				}
+				if(maternelles==0 && conges==1)
+				{
+					chaine_liste += '<td class="conges_aujourhui">'+i+'</td>';
+				}
+				if(maternelles==1 && conges==1)
+				{
+					chaine_liste += '<td class="maternelles_conges_aujourdhui" title="Accueil maternelles : '+detail_maternelles+'"><span class="maternelles_double"><span class="int_double">'+i+'</span></span></td>';
+				}
+				else if(bricolages==0 && maternelles==0 && conges==0)
+				{
+					chaine_liste += '<td class="cal_aujourdhui">'+i+'</td>';
+				}
+			}
+			else if(jour_ok==0)
+			{
+				if(bricolages==1)
+				{
+					chaine_liste += '<td class="bricolages">'+i+'</td>';
+				}
+				if(maternelles==1 && conges==0)
+				{
+					chaine_liste += '<td class="maternelles" id="'+i+'" title="Accueil maternelles: '+detail_maternelles+'">'+i+'</td>';
+				}
+				if(maternelles==0 && conges==1)
+				{
+					chaine_liste += '<td class="conges">'+i+'</td>';
+				}
+				if(maternelles==1 && conges==1)
+				{
+					chaine_liste += '<td class="maternelles_conges" title="Accueil maternelles : '+detail_maternelles+'"><span class="maternelles_double"><span class="int_double">'+i+'</span></span></td>';
+				}
+				else if(bricolages==0 && maternelles==0 && conges==0)
+				{
+					chaine_liste += '<td>'+i+'</td>';
+				}
+			}
 		}
-
-        else if(pour_verif==1)
-        {
-            chaine_liste += '<td>'+i+'</td>';
-        }
+		else
+		{
+			if(jour_ok==i)
+			{
+				chaine_liste += '<td class="cal_aujourdhui">'+i+'</td>';
+			}
+			else
+			{
+				chaine_liste += '<td>'+i+'</td>';
+			}
+		}
+		
         sem++;
         if(sem==7)
         {
@@ -283,17 +321,7 @@ function calendrier()
 document.getElementById('cal_calendrier').innerHTML = chaine_liste;
 
 
-var test_double = document.getElementsByClassName('int_double');
-for(i=0;i<test_double.length;i++)
-{
-if(test_double.length!=0)
-{	
-var id_supp = test_double[i].textContent;
-var parent_supp = document.getElementById('14').parentNode;
-var a_supp = document.getElementById(id_supp);
-parent_supp.removeChild(a_supp);
-}
-}
+
 
 }
 

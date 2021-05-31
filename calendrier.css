@@ -43,7 +43,7 @@ img
 {
     text-align:center;
 }
-.cal_aujourdhui
+.cal_aujourdhui, .maternelles_conges_aujourdhui, .conges_aujourdhui, .maternelles_aujourdhui, .bricolages_aujourdhui
 {
 	font-weight: bold;
 	text-decoration: underline;
@@ -52,7 +52,7 @@ img
 {
     color:#5a779e;
 }
-.maternelles, .maternelles_double
+.maternelles, .maternelles_double, .maternelles_aujourdhui
 {
 	border-radius: 50%;
 	background-color: #F0A935;
@@ -66,15 +66,16 @@ img
 	justify-content: center;
 	align-items: center;
 }
-.bricolages
+.bricolages, .bricolages_aujourdhui
 {
 	border-radius: 50%;
 	background-color: #506bad;
 }
-.conges, .maternelles_conges
+.conges, .maternelles_conges, .conges_aujourdhui, .maternelles_conges_aujourdhui
 {
 	background-color: red;
 }
+
 
 .maternelles_aff
 {
