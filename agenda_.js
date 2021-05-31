@@ -247,7 +247,7 @@ function calendrier()
 				}
 				if(maternelles==1 && conges==0)
 				{
-					chaine_liste += '<td class="maternelles_aujourdhui">'+i+'</td>';
+					chaine_liste += '<td class="maternelles_aujourdhui" title="Accueil maternelles : '+detail_maternelles+'">'+i+'</td>';
 				}
 				if(maternelles==0 && conges==1)
 				{
