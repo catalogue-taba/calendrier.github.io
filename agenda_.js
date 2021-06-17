@@ -432,7 +432,7 @@ if(conges.length!=0)
 	}
 	else
 	{
-		var chaine3 = '<p style="display:none;"></p>';
+		var chaine_liste3 = '<p style="display:none;"></p>';
 	}
 	for(i=0;i<conges.length;i++)
 	{
