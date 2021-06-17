@@ -107,7 +107,6 @@ function calendrier()
 	var date = new Date(annee, moi, jour);
 	
 	var date_du_jour = new Date();
-	var date_du_jour = new Date();
 	var jour_date_jour = date_du_jour.getDate();
 	var mois_date_jour = date_du_jour.getMonth();
 	var annee_date_jour = date_du_jour.getYear();
@@ -247,11 +246,11 @@ function calendrier()
 				}
 				if(maternelles==1 && conges==0)
 				{
-					chaine_liste += '<td class="maternelles_aujourdhui" title="Accueil maternelles : '+detail_maternelles+'">'+i+'</td>';
+					chaine_liste += '<td class="maternelles_aujourdhui">'+i+'</td>';
 				}
 				if(maternelles==0 && conges==1)
 				{
-					chaine_liste += '<td class="conges_aujourhui">'+i+'</td>';
+					chaine_liste += '<td class="conges_aujourdhui">'+i+'</td>';
 				}
 				if(maternelles==1 && conges==1)
 				{
@@ -427,7 +426,14 @@ var conges = event_conges();
 if(conges.length!=0)
 {
 	var date = new Date(Number(annee)+1900, mois, jour);
+	if(pour_affichage.length!=0)
+	{
 	var chaine_liste3 = chaine_liste2;
+	}
+	else
+	{
+		var chaine3 = '<p style="display:none;"></p>';
+	}
 	for(i=0;i<conges.length;i++)
 	{
 		var verif_date = new Date(conges[i][0][2], Number(conges[i][0][1])-1, conges[i][0][0]);
