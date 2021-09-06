@@ -9,7 +9,27 @@ function event_maternelles() {
 [29, 11, 2021, 'CP et grandes sections'],
 [10, 12, 2021, 'Moyennes sections'],
 [17, 12, 2021, 'Petites sections']
-];
+[3, 1, 2022, 'CP et grandes sections'],
+[14, 1, 2022, 'Moyennes sections'],
+[21, 1, 2022, 'Petites sections'],
+[24, 1, 2022, 'CP et grandes sections'],
+[4, 2, 2022, 'Moyennes sections'],
+[11, 2, 2022, 'Petites sections'],
+[7, 3, 2022, 'CP et grandes sections'],
+[18, 3, 2022, 'Moyennes sections'],
+[25, 3, 2022, 'Petites sections'],
+[28, 3, 2022, 'CP et grandes sections'],
+[8, 4, 2022, 'Moyennes sections'],
+[15, 4, 2022, 'Petites sections'],
+[2, 5, 2022, 'CP et grandes sections'],
+[13, 5, 2022, 'Moyennes sections'],
+[20, 5, 2022, 'Petites sections'],
+[23, 5, 2022, 'CP et grandes sections'],
+[3, 6, 2022, 'Moyennes sections'],
+[10, 6, 2022, 'Petites sections'],
+[13, 6, 2022, 'CP et grandes sections'],
+[24, 6, 2022, 'Moyennes sections'],
+[1, 7, 2022, 'Petites sections']];
 		
 	return accueil_maternelles;
 }
