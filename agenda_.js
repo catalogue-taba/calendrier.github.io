@@ -1,23 +1,15 @@
 function event_maternelles() {
-	var accueil_maternelles = [];
-	var accueil1 = [6, 4, 2021, 'petites sections'];
-		accueil_maternelles.splice(0, 0, accueil1);
-	var accueil2 = [26, 4, 2021, 'moyennes sections'];
-		accueil_maternelles.splice(1, 0, accueil2);
-	var accueil3 = [3, 5, 2021, 'CP et grandes sections'];
-		accueil_maternelles.splice(2, 0, accueil3);
-	var accueil4 = [10, 5, 2021, 'moyennes sections'];
-		accueil_maternelles.splice(3, 0, accueil4);
-	var accueil5 = [11, 5, 2021, 'petites sections'];
-		accueil_maternelles.splice(4, 0, accueil5);
-	var accueil6 = [31, 5, 2021, 'CP et grandes sections'];
-		accueil_maternelles.splice(5, 0, accueil6);
-	var accueil7 = [1, 6, 2021, 'petites sections'];
-		accueil_maternelles.splice(6, 0, accueil7);
-	var accueil8 = [7, 6, 2021, 'moyennes sections'];
-		accueil_maternelles.splice(7, 0, accueil8);
-	var accueil9 = [14, 6, 2021, 'CP et grandes sections']
-		accueil_maternelles.splice(8, 0, accueil9);
+	var accueil_maternelles = [
+[20, 9, 2021, 'CP et grandes sections'],
+[1, 10, 2021, 'Moyennes sections'],
+[8, 10, 2021, 'Petites sections'],
+[8, 11, 2021, 'CP et grandes sections'],
+[19, 11, 2021, 'Moyennes sections'],
+[26, 11, 2021, 'Petites sections'],
+[29, 11, 2021, 'CP et grandes sections'],
+[10, 12, 2021, 'Moyennes sections'],
+[17, 12, 2021, 'Petites sections']
+];
 		
 	return accueil_maternelles;
 }
