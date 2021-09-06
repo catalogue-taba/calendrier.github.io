@@ -8,7 +8,7 @@ function event_maternelles() {
 [26, 11, 2021, 'Petites sections'],
 [29, 11, 2021, 'CP et grandes sections'],
 [10, 12, 2021, 'Moyennes sections'],
-[17, 12, 2021, 'Petites sections']
+[17, 12, 2021, 'Petites sections'],
 [3, 1, 2022, 'CP et grandes sections'],
 [14, 1, 2022, 'Moyennes sections'],
 [21, 1, 2022, 'Petites sections'],
