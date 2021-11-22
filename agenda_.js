@@ -43,8 +43,7 @@ function event_bricolages() {
 		[22, 12, 2021, 'jeux de société'],
 		[12, 1, 2022, 'bricolage hiver'],
 		[19, 1, 2022, 'bricolage hiver'],
-		[26, 1, 20222, 'bricolage hiver']
-	];
+		[26, 1, 20222, 'bricolage hiver']];
 
 	
 	return dates_bricolages;
@@ -150,7 +149,7 @@ function calendrier()
 	verif_moi=Number(moi)+1;
 	if(bricolages[j][1]==verif_moi && bricolages[j][2]==annee)
 	{
-	affiche_bricolages.splice(j, 0, [bricolages[j][0], bricolages[j][3]);
+	affiche_bricolages.splice(j, 0, [bricolages[j][0], bricolages[j][3]]);
 	}}
 	
 	var conges = event_conges();
@@ -169,7 +168,7 @@ function calendrier()
 		}
 	}
 	
-	
+
 	
 	var test_afficher_event=0;
 	if(affiche_maternelles.length!=0 || affiche_bricolages.length!=0 || affiche_conges!=0)
@@ -234,17 +233,23 @@ function calendrier()
 					}
 				}
 			}
+
 			if(affiche_bricolages.length!=0)
 			{
+
 				for(j=0;j<affiche_bricolages.length;j++)
 				{
+
 					if(affiche_bricolages[j][0]==i)
 					{
 						var bricolages=1;
 						var details_bricolages = affiche_bricolages[j][1];
+
 					}
 				}
 			}
+
+
 			if(affiche_conges.length!=0)
 			{
 				for(j=0;j<affiche_conges.length;j++)
@@ -287,7 +292,7 @@ function calendrier()
 			{
 				if(bricolages==1)
 				{
-					chaine_liste += '<td class="bricolages" title="+'details_bricolages'+">'+i+'</td>';
+					chaine_liste += '<td class="bricolages" title="'+details_bricolages+'">'+i+'</td>';
 				}
 				if(maternelles==1 && conges==0)
 				{
