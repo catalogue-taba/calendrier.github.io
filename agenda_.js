@@ -150,7 +150,7 @@ function calendrier()
 	verif_moi=Number(moi)+1;
 	if(bricolages[j][1]==verif_moi && bricolages[j][2]==annee)
 	{
-	affiche_bricolages.splice(j, 0, bricolages[j][0]);
+	affiche_bricolages.splice(j, 0, [bricolages[j][0], bricolages[j][3]);
 	}}
 	
 	var conges = event_conges();
@@ -241,6 +241,7 @@ function calendrier()
 					if(affiche_bricolages[j][0]==i)
 					{
 						var bricolages=1;
+						var details_bricolages = affiche_bricolages[j][1];
 					}
 				}
 			}
@@ -286,7 +287,7 @@ function calendrier()
 			{
 				if(bricolages==1)
 				{
-					chaine_liste += '<td class="bricolages">'+i+'</td>';
+					chaine_liste += '<td class="bricolages" title="+'details_bricolages'+">'+i+'</td>';
 				}
 				if(maternelles==1 && conges==0)
 				{
