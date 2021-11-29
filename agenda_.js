@@ -36,14 +36,7 @@ function event_maternelles() {
 
 function event_bricolages() {
 	var dates_bricolages = [
-	[24, 11, 2021, 'jeux de société'],
-		[1, 12, 2021, 'bricolage de Noël'],
-		[8, 12, 2021, 'bricolage de Noël'],
-		[15, 12, 2021, 'bricolage de Noël'],
-		[22, 12, 2021, 'jeux de société'],
-		[12, 1, 2022, 'bricolage hiver'],
-		[19, 1, 2022, 'bricolage hiver'],
-		[26, 1, 20222, 'bricolage hiver']];
+	];
 
 	
 	return dates_bricolages;
