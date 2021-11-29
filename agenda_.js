@@ -44,25 +44,25 @@ function event_bricolages() {
 
 function event_conges() {
 	var dates_conges = [];
-	var debut_conges1 = 14;
-	var fin_conges1 = 27;
+	var debut_conges1 = 27;
+	var fin_conges1 = 31;
 	var nb_conges = fin_conges1 - debut_conges1;
 	var conges1 = [];
 	for(i=0;i<=nb_conges;i++)
 	{
 		var jour_conges = debut_conges1+i;
-		conges1.splice(i, 0, [jour_conges, 6, 2021, 'conges']);
+		conges1.splice(i, 0, [jour_conges, 12, 2021, 'conges']);
 	}
 	dates_conges.splice(0, 0, conges1);
 	
-	var debut_conges2 = 12;
-	var fin_conges2 = 18;
+	var debut_conges2 = 1;
+	var fin_conges2 = 2;
 	var nb_conges = fin_conges2 - debut_conges2;
 	var conges2 = [];
 	for(i=0;i<=nb_conges;i++)
 	{
 		var jour_conges = debut_conges2+i;
-		conges2.splice(i, 0, [jour_conges, 7, 2021, 'conges']);
+		conges2.splice(i, 0, [jour_conges, 1, 2022, 'conges']);
 	}
 	dates_conges.splice(1, 0, conges2);
 	
