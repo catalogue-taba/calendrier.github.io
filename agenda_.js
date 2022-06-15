@@ -51,7 +51,7 @@ function event_conges() {
 	for(i=0;i<=nb_conges;i++)
 	{
 		var jour_conges = debut_conges1+i;
-		conges1.splice(i, 0, [jour_conges, 6, 2021, 'conges']);
+		conges1.splice(i, 0, [jour_conges, 6, 2022, 'conges']);
 	}
 	dates_conges.splice(0, 0, conges1);
 	
