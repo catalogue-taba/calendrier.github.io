@@ -67,7 +67,7 @@ function event_conges() {
 	dates_conges.splice(1, 0, conges2);
 	
 	var debut_conges3 = 1;
-	var fin_conges3 = 28;
+	var fin_conges3 = 21;
 	var nb_conges = fin_conges3 - debut_conges3;
 	var conges3 = [];
 	for(i=0;i<=nb_conges;i++)
